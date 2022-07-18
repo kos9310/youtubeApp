@@ -32,6 +32,14 @@ function VideoUploadPage() {
         setDescription(e.currentTarget.value)
     }
 
+    const onPrivateChange = (e) => {
+        setPrivate(e.currentTarget.value)
+    }
+
+    const onCategoryChange = (e) => {
+        setCategory(e.currentTarget.value)
+    }
+
     return (
         <div style={{ maxWidth:'700px', margin:'2rem auto'}}>
             <div style={{ textAlign:'center', marginBottom:'2rem'}}>
@@ -74,14 +82,14 @@ function VideoUploadPage() {
             <br />
             <br />
 
-            <select onChange>
+            <select onChange={onPrivateChange}>
                 {PrivateOptions.map((item, index) => (
                   <option key={index} value={item.value}>{item.label}</option>  
                 ))}
             </select>
             <br />
             <br />
-            <select onChange>
+            <select onChange={onCategoryChange}>
                 {CategoryOptions.map((item, index) => (
                   <option key={index} value={item.value}>{item.label}</option>  
                 ))}
