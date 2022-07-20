@@ -41,6 +41,18 @@ router.post('/uploadfiles', (req, res) => {
         return res.json({ success: true, url: res.req.file.path, fileName: res.req.file.filename })
     })
 })
+
+router.post('/uploaVideo', (req, res) => {
+
+    // 비디오 정보들을 저장한다.
+    const video = new Video(req.body)
+
+    video.save((err, doc) => {
+        if(err) return res.json({ success: false, err })
+        res.status(200).json({ success: true })
+    })
+})
+
 router.post('/thumbnail', (req, res) => {
 
     // 썸네일을 생성하고 비디오 러닝타임도 가져오기
