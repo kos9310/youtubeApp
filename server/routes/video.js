@@ -53,6 +53,17 @@ router.post('/uploaVideo', (req, res) => {
     })
 })
 
+router.get('/getVideos', (req, res) => {
+
+    // 비디오를 DB에서 가져오고 클라이언트에 보낸다.
+    Video.find()
+        .populate('writer')
+        .exec((err, videos) => {
+            if(err) return res.status(400).send(err);
+            res.status(200).json({ success: true, videos})
+        })
+})
+
 router.post('/thumbnail', (req, res) => {
 
     // 썸네일을 생성하고 비디오 러닝타임도 가져오기

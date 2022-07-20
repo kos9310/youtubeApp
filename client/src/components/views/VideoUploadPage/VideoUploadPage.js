@@ -81,7 +81,6 @@ function VideoUploadPage(props) {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(user.userData);
         const variables = {
             writer: user.userData._id,
             title: VideoTitle,
